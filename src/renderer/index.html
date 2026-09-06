@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' media: data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"
+  />
+  <title>StockFlow Desktop</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="brand-text">
+          <strong>StockFlow</strong>
+          <span>Inventory</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" id="nav">
+        <button class="nav-item" data-view="dashboard">
+          <svg viewBox="0 0 24 24" class="nav-ico" aria-hidden="true"><path d="M3 13h8V3H3zm0 8h8v-6H3zm10 0h8V11h-8zm0-18v6h8V3z"/></svg>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-view="products">
+          <svg viewBox="0 0 24 24" class="nav-ico" aria-hidden="true"><path d="M4 7l8-4 8 4-8 4-8-4zm-2 6l10 5 10-5M12 22v-9"/></svg>
+          <span>Products</span>
+        </button>
+        <button class="nav-item" data-view="categories">
+          <svg viewBox="0 0 24 24" class="nav-ico" aria-hidden="true"><path d="M3 5h5l2 2h11v12H3z"/></svg>
+          <span>Categories</span>
+        </button>
+        <button class="nav-item" data-view="suppliers">
+          <svg viewBox="0 0 24 24" class="nav-ico" aria-hidden="true"><path d="M20 7h-4V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zm-9-2h2v2h-2z"/></svg>
+          <span>Suppliers</span>
+        </button>
+        <button class="nav-item" data-view="stock">
+          <svg viewBox="0 0 24 24" class="nav-ico" aria-hidden="true"><path d="M5 3v18M5 8h6l-1.5-3 3 3L15 4l4 4M5 14h9"/></svg>
+          <span>Stock</span>
+        </button>
+        <button class="nav-item" data-view="reports">
+          <svg viewBox="0 0 24 24" class="nav-ico" aria-hidden="true"><path d="M4 4v16h16M7 14l4-4 3 3 5-6"/></svg>
+          <span>Reports</span>
+        </button>
+        <button class="nav-item" data-view="settings">
+          <svg viewBox="0 0 24 24" class="nav-ico" aria-hidden="true"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          <span>Settings</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="dot" title="Works offline"></div>
+        <span>Offline · v<span id="sidebar-version">1.0.0</span></span>
+      </div>
+    </aside>
+
+    <main class="main" id="view-root" aria-live="polite"></main>
+  </div>
+
+  <div id="toast-region" aria-live="assertive"></div>
+  <div id="modal-root"></div>
+  <div id="loader" class="loader hidden">
+    <div class="spinner"></div>
+    <span id="loader-text">Loading…</span>
+  </div>
+
+  <script src="../shared/format.js"></script>
+  <script src="util.js"></script>
+  <script src="ui.js"></script>
+  <script src="views/dashboard.js"></script>
+  <script src="views/products.js"></script>
+  <script src="views/categories.js"></script>
+  <script src="views/suppliers.js"></script>
+  <script src="views/stock.js"></script>
+  <script src="views/reports.js"></script>
+  <script src="views/settings.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

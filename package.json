@@ -1,0 +1,71 @@
+{
+  "name": "stockflow-desktop",
+  "version": "1.0.0",
+  "description": "StockFlow Desktop - offline inventory management for small businesses",
+  "author": "StockFlow",
+  "license": "MIT",
+  "private": true,
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "start:e2e": "node scripts/run-e2e.js",
+    "test": "node scripts/run-tests.js",
+    "icon": "node scripts/icon.js",
+    "dist": "electron-builder --win --x64",
+    "dist:dir": "electron-builder --win --x64 --dir",
+    "verify": "node scripts/verify.js"
+  },
+  "build": {
+    "appId": "com.stockflow.desktop",
+    "productName": "StockFlow",
+    "copyright": "Copyright © 2026 StockFlow",
+    "asar": true,
+    "compression": "normal",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "StockFlow",
+      "artifactName": "StockFlow-Setup-${version}.${ext}",
+      "deleteAppDataOnUninstall": false,
+      "runAfterFinish": false
+    },
+    "portable": {
+      "artifactName": "StockFlow-${version}-portable.${ext}"
+    },
+    "artifactName": "StockFlow-${version}-${name}.${ext}"
+  },
+  "devDependencies": {
+    "electron": "44.2.0",
+    "electron-builder": "26.15.3",
+    "png-to-ico": "3.0.2",
+    "pngjs": "7.0.0"
+  }
+}

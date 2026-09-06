@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build outputs (installer + portable exes are published as GitHub Releases instead)
+release/
+dist/
+out/
+
+# Local dev / E2E artifacts & screenshots
+artifacts/
+
+# Runtime database files (live in the user's app-data folder, never in the repo)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editors / local tooling
+.vscode/
+.idea/
+*.suo
